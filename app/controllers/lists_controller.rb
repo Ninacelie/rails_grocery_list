@@ -5,4 +5,13 @@ class ListsController < ApplicationController
     @list = List.new
   end 
 
+  def create 
+
+  end 
+
+  private
+
+  def list_params
+    params.require(:list).permit(:title, :content)
+  end 
 end 

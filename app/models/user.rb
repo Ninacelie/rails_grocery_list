@@ -7,4 +7,7 @@ class User < ApplicationRecord
   validates :username, presence: true 
   validates :email, presence: true
 
+  scope :active, -> {where(status: "active")}
+  scope :inactive, -> {where(status: "inactive")}
+
 end
