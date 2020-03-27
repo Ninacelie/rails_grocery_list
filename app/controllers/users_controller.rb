@@ -8,13 +8,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save 
       session[:user_id] = @user.id # create a session / log them in 
-      redirect_to "/users/#{@user.id}"
+      redirect_to "/users/#{@user.id}" # users home page 
     else
-      render :new
+      render :new # back to sign up 
     end 
   end 
   
   def show
+    redirect_if_not_logged_in
+    @user = User.find_by_id(params[:id])
+    redirect_to '/' if !@user 
   end 
 
   private
