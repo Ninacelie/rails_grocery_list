@@ -11,11 +11,6 @@
 
   <body>
     <div>
-      <% if logged_in? %>
-      <%= link_to "Add a List", "new_list_path" %>
-      <%= link_to "All Lists", "lists_path" %>
-      <% end %>
-
     <%= yield %>
   </body>
 </html>

@@ -4,10 +4,8 @@ class User < ApplicationRecord
   has_many :lists
   has_many :items, through: :lists 
 
-  validates :username, presence: true 
+  validates :username, presence: true, uniqueness: true 
   validates :email, presence: true
 
-  scope :active, -> {where(status: "active")}
-  scope :inactive, -> {where(status: "inactive")}
 
 end
