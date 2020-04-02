@@ -3,14 +3,11 @@ Rails.application.routes.draw do
   
   #signup routes
   get '/signup', to: 'users#new' 
-  post '/users', to: 'users#create'
+  # post '/users', to: 'users#create'
 
   #login routes
   get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
-
-  #users home page / show page 
-  get '/users/:id', to: 'users#show'
 
   #logout routes
   post '/logout', to: 'sessions#logout'

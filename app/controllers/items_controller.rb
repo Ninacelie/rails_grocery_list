@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController 
 
   def index
-    if params[:post_id] && @post = Post.find_by_id(params[:post_id]) 
-      # if is nested and post exists 
-      @items = 
+    if params[:list_id] && @list = List.find_by_id(params[:list_id]) 
+      @items = List.items 
     else 
       @items = Item.all 
+    end 
   end 
 
   def new
@@ -27,5 +27,5 @@ class ItemsController < ApplicationController
 
   def edit 
     @item = Item.find_by(id: params[:id])
-  end 
+  end
 end 
